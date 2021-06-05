@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AndroidLayouts">
+    <shared>
+      <config />
+    </shared>
+  </component>
+  <component name="AndroidLogFilters">
+    <option name="TOOL_WINDOW_LOG_LEVEL" value="error" />
+    <option name="TOOL_WINDOW_CONFIGURED_FILTER" value="Show only selected application" />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="dc7fdb48-2965-4e6c-a550-41430f3dbba3" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/app/src/main/java/com/vritti/sass/model/DateFormatChange.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/java/com/vritti/sass/model/GoldenRules.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/java/com/vritti/sass/model/UpdateTime.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/res/layout-sw600dp/remarks_value.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/buildOutputCleanup/cache.properties" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/buildOutputCleanup/cache.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/gradle.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/gradle.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/modules.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/runConfigurations.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/runConfigurations.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/vcs.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/app.iml" beforeDir="false" afterPath="$PROJECT_DIR$/app/app.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/build.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/app/build.gradle" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/build/generated/source/buildConfig/debug/com/vritti/sass/BuildConfig.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/build/generated/source/buildConfig/debug/com/vritti/sass/BuildConfig.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/build/intermediates/incremental/mergeDebugAssets/merger.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/build/intermediates/incremental/mergeDebugAssets/merger.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/build/intermediates/incremental/mergeDebugJniLibFolders/merger.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/build/intermediates/incremental/mergeDebugJniLibFolders/merger.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/build/intermediates/incremental/mergeDebugResources/compile-file-map.properties" beforeDir="false" afterPath="$PROJECT_DIR$/app/build/intermediates/incremental/mergeDebugResources/compile-file-map.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/build/intermediates/incremental/mergeDebugResources/merger.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/build/intermediates/incremental/mergeDebugResources/merger.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/build/intermediates/incremental/mergeDebugShaders/merger.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/build/intermediates/incremental/mergeDebugShaders/merger.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/build/outputs/logs/manifest-merger-debug-report.txt" beforeDir="false" afterPath="$PROJECT_DIR$/app/build/outputs/logs/manifest-merger-debug-report.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/AndroidManifest.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/AndroidManifest.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/vritti/sass/CleansingPermitActivity.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/vritti/sass/CleansingPermitActivity.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/vritti/sass/ConfinedSpaceEntryActivity.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/vritti/sass/ConfinedSpaceEntryActivity.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/vritti/sass/ContractorAddActivity.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/vritti/sass/ContractorAddActivity.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/vritti/sass/ContractorListActivity.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/vritti/sass/ContractorListActivity.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/vritti/sass/DowngradeCondition.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/vritti/sass/DowngradeCondition.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/vritti/sass/DowngradeConditionAdapter.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/vritti/sass/DowngradeConditionAdapter.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/vritti/sass/ExcavationPermitActivity.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/vritti/sass/ExcavationPermitActivity.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/vritti/sass/HOTWorkActivity.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/vritti/sass/HOTWorkActivity.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/vritti/sass/ImageFullScreenActivity.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/vritti/sass/ImageFullScreenActivity.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/vritti/sass/LiftingPermitActivity.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/vritti/sass/LiftingPermitActivity.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/vritti/sass/LoginActivity.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/vritti/sass/LoginActivity.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/vritti/sass/LotoMainActivity.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/vritti/sass/LotoMainActivity.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/vritti/sass/MainActivity.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/vritti/sass/MainActivity.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/vritti/sass/MaintainanceListActivity.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/vritti/sass/MaintainanceListActivity.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/vritti/sass/ShiftHandOverActivity.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/vritti/sass/ShiftHandOverActivity.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/vritti/sass/SupervisorMainActivity.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/vritti/sass/SupervisorMainActivity.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/vritti/sass/WorkAtHeightPermitActivity.java" beforeDir="false" afterPath="$P

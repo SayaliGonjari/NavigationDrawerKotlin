@@ -1,0 +1,271 @@
+package com.vritti.sass;
+
+import android.Manifest;
+import android.app.Activity;
+import android.app.DatePickerDialog;
+import android.app.ProgressDialog;
+import android.app.TimePickerDialog;
+import android.content.Context;
+import android.content.Intent;
+import android.content.SharedPreferences;
+import android.content.pm.PackageManager;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
+import android.graphics.Color;
+import android.net.Uri;
+import android.os.AsyncTask;
+import android.os.Build;
+import android.os.Bundle;
+import android.os.Environment;
+import android.os.StrictMode;
+import android.preference.PreferenceManager;
+import android.provider.MediaStore;
+import android.provider.Settings;
+import android.support.annotation.Nullable;
+import android.support.v4.content.ContextCompat;
+import android.support.v7.app.AppCompatActivity;
+import android.support.v7.widget.DefaultItemAnimator;
+import android.support.v7.widget.LinearLayoutManager;
+import android.support.v7.widget.RecyclerView;
+import android.support.v7.widget.Toolbar;
+import android.text.Editable;
+import android.text.TextUtils;
+import android.text.TextWatcher;
+import android.util.Log;
+import android.view.Gravity;
+import android.view.LayoutInflater;
+import android.view.Menu;
+import android.view.MenuInflater;
+import android.view.MenuItem;
+import android.view.View;
+import android.view.ViewGroup;
+import android.view.WindowManager;
+import android.view.inputmethod.InputMethodManager;
+import android.widget.AdapterView;
+import android.widget.Button;
+import android.widget.DatePicker;
+import android.widget.EditText;
+import android.widget.GridView;
+import android.widget.ImageView;
+import android.widget.LinearLayout;
+import android.widget.ListView;
+import android.widget.ProgressBar;
+import android.widget.RadioButton;
+import android.widget.RadioGroup;
+import android.widget.RelativeLayout;
+import android.widget.ScrollView;
+import android.widget.Spinner;
+import android.widget.TextView;
+import android.widget.TimePicker;
+import android.widget.Toast;
+
+
+import com.facebook.drawee.view.SimpleDraweeView;
+import com.google.gson.Gson;
+import com.google.gson.reflect.TypeToken;
+import com.vritti.sass.Interface.CallbackInterface;
+import com.vritti.sass.adapter.AuthorizedPersonAdapter;
+import com.vritti.sass.adapter.CompletePermitDetailsAdapter;
+import com.vritti.sass.adapter.DepotAdapter;
+import com.vritti.sass.adapter.EquipAdapter;
+import com.vritti.sass.adapter.GoldenRuleAdapter;
+import com.vritti.sass.adapter.InRiskAdapter;
+import com.vritti.sass.adapter.InstallationListAdapter;
+import com.vritti.sass.adapter.LocationOperationAdapter;
+import com.vritti.sass.adapter.OperationAdapter;
+import com.vritti.sass.adapter.PermitContractorListAdapter;
+import com.vritti.sass.adapter.PrevenionWAdapter;
+import com.vritti.sass.adapter.WorkOperationAdapter;
+import com.vritti.sass.model.AuthorizedPerson;
+import com.vritti.sass.model.CommonClass;
+import com.vritti.sass.model.ContractorList;
+import com.vritti.sass.model.DateFormatChange;
+import com.vritti.sass.model.Depot;
+import com.vritti.sass.model.EquipmentUse;
+import com.vritti.sass.model.GoldenRules;
+import com.vritti.sass.model.IndicateRisk;
+import com.vritti.sass.model.InstallationPreparation;
+import com.vritti.sass.model.Location;
+import com.vritti.sass.model.Operation;
+import com.vritti.sass.model.OperationGrpList;
+import com.vritti.sass.model.Permit;
+import com.vritti.sass.model.Prevention;
+import com.vritti.sass.model.StartSession;
+import com.vritti.sass.model.UpdateTime;
+import com.vritti.sass.model.Utility;
+import com.vritti.sass.model.WebAPIUrl;
+
+import org.json.JSONArray;
+import org.json.JSONException;
+import org.json.JSONObject;
+
+import java.io.BufferedInputStream;
+import java.io.DataOutputStream;
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import java.io.InputStream;
+import java.io.OutputStream;
+import java.lang.reflect.Type;
+import java.net.HttpURLConnection;
+import java.net.URL;
+import java.net.URLEncoder;
+import java.text.DateFormat;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.ArrayList;
+import java.util.Calendar;
+import java.util.Collections;
+import java.util.Comparator;
+import java.util.Date;
+import java.util.List;
+import java.util.Locale;
+import java.util.Random;
+
+
+/*
+ * Created by sharvari on 14-Nov-18.
+ */
+
+public class WorkAuthorizationActivity extends AppCompatActivity {
+
+    private static String IMAGE_DIRECTORY_NAME = "SASS";
+    SimpleDateFormat dateFormatdate;
+    Permit permit;
+    //RadioGroup radio_operation,radiogroup_method;
+    ImageView img_camera, img_camera1;
+    LinearLayout len_indicate;
+
+    RadioGroup radiogroup_method;
+    RadioButton radio_yes, radio_no;
+
+    //RadioButton radio_none,radio_hotwork,radio_excavation,radio_workatheight,radio_liftingpermit,radio_cleaningpermit,radio_confined;
+
+    EditText edit_permitno, edit_Prevention_plan, edit_remarks;
+    Spinner spinner_operation, spinner_authorize, spinner_authorize1, spinner_permit_closed, spinner_spotcheck, spinner_station, spinner_contractor,
+            spinner_location;
+    LinearLayout ln_spinner_authorize, ln_spinner_reason;
+    String data = "", Password = "";
+    Button btn_submit;
+    LinearLayout ln_station, ln_contractor, ln_natureOperation, ln_locationOperation;
+    int check = 0;
+    Button edt_authorize_date, edt_authorize_date1;
+    Button edt_fromdate, edt_todate;
+    Button edt_from_time, edt_andto_time, edt_from_to_time, edt_andfrom_time, edt_permit_date, edt_spot_date, edt_cancel_date;
+    int Year, month, day;
+    DatePickerDialog datePickerDialog;
+    private WorkAuthorizationActivity parent;
+    public static String time = null, disptime;
+    public static String time1 = null;
+    String date;
+    static String todaysDate;
+    int MY_CAMERA_PERMISSION_CODE = 100;
+    int MEDIA_TYPE_IMAGE = 1;
+    int CAMERA_REQUEST = 101;
+    private Uri fileUri;
+    File mediaFile;
+    private CommonClass cc;
+    String tempVal = "", ReasonVal = "";
+
+    SharedPreferences userpreferences;
+    private ArrayList<Depot> depotArrayList;
+    private ArrayList<AuthorizedPerson> authorizedPersonArrayList;
+    String categoryDesc = "";
+    private ArrayList<AuthorizedPerson> txt_authorizeArrayList;
+    private ArrayList<GoldenRules> goldenRulesArrayList;
+    GoldenRuleAdapter goldenRuleAdapter;
+    private ArrayList<ContractorList> contractorListActivityArrayList;
+    private ArrayList<Operation> operationArrayList;
+    private ArrayList<Location> LocationArraylist;
+    DepotAdapter depotAdapter;
+    AuthorizedPersonAdapter authorizedPersonAdapter;
+    PermitContractorListAdapter permitContractorListAdapter;
+    OperationAdapter operationAdapter;
+    LocationOperationAdapter locationOperationAdapter;
+    String CompanyURL;
+    SharedPreferences sharedPrefs;
+    ProgressBar mprogress;
+    Gson gson;
+    String json;
+    JSONObject Activityjson;
+    Type type;
+    String authorize = "", ContractorName = "", PermitClosed = "", SpotCheck = "", StationId = "", StationName = "", PermitNo = "", PKFormId = "",
+            formcode = "", OperationId = "", LocationId = "", LocationName = "", Authorize1Name = "", AuthorizeDate2 = "", AuthorizeDate1 = "",
+            method_of_operation = "N", listindicaterisk, listequipmentrisk, listprevention, contractorId = "", PreventionPlan_Code = "", userLoginId = "";
+    String prevention_plan = "", remarks = "", CustPreventionPlan_Code = "", OperationName = "", contractorName = "", listinstallation;
+    String StartDate = "", EndDate = "", fromtime = "", totime = "", andfromtime = "", andtotime = "", permitcloseddate = "", spotcheckdate = "", cancelDate = "", goldenRulesList = "";
+    private String serverResponseMessage, path, Imagefilename;
+    ScrollView scrollView;
+    String indicateRisk_Others = "", equipment_Others = "", prevention_Others = "", installation_Others = "";
+
+    String Authorize1Id = "", PermitClosedId = "", SpotCheckId = "", cancelId = "";
+
+
+    ArrayList<Prevention> preventionArrayList;
+    ArrayList<EquipmentUse> equipmentUseArrayList;
+    ArrayList<IndicateRisk> indicateRiskArrayList;
+    ArrayList<InstallationPreparation> installationPreparationArrayList;
+    boolean isAns;
+    ArrayList<String> radiocheck;
+    ListView list_prevention, list_equipment, list_indicaterisk;
+    ListView list_installation;
+
+    PrevenionWAdapter prevenionAdapter;
+    EquipAdapter equipmentAdapter;
+    InRiskAdapter indicateRiskAdapter;
+    InstallationListAdapter installationListAdapter;
+    String OperationCode = "", indicateriskCode = "";
+    String response;
+    String IndicateId, operationCodeId = "";
+    private String[] user;
+    private String[] user1;
+    private String[] user2;
+    private String[] user3;
+    private String[] user4;
+    private String[] user5;
+    SimpleDraweeView img_display;
+
+    TextView txt_authorize, txt_permit_closed, txt_spotcheck, txt_cancel;
+
+    private long mLastClickTime = 0;
+    GridView grid_operation;
+    ArrayList<OperationGrpList> operationlist;
+    WorkOperationAdapter adapter;
+
+    RelativeLayout cusdialog1, cusdialog2;
+    Button txt_submit_pass, txt_cancel_pass;
+    EditText edit_password;
+
+    Button txt_submit_reason, txt_cancel_reason;
+    EditText edit_password_reason, edit_reason;
+    String Mode = "";
+    int img_pos;
+    String temp = "", Electricimg = "", Isolatedimg = "", SpotCheckimgpost;
+    String isolatedAbsolutePath = "", electricalAbsolutePath = "", spotAbsolutePath = "";
+    String Electricimgpost = "", Isolatedimgpost = "", Spotimgpost = "";
+    //Button btn_pdf;
+    RelativeLayout ln_WAH;
+    Bitmap bitmap;
+    LinearLayout btLayour;
+    Date nextSevenDay = null;
+    String sevenDay = "", PermitStatus = "";
+    TextView tx_p_closed, txt_cancel_permit;
+    LinearLayout len_p_closed, len_cancel_permit;
+    RecyclerView list_goldenRules;
+    RelativeLayout ln_completePermitDetails;
+    RecyclerView list_permitDetails;
+    CompletePermitDetailsAdapter completePermitDetailsAdapter;
+    Button btn_cancel;
+    ProgressBar progressBar;
+
+    int fromTimeSelectedHour;
+    int fromToTimeHr = 9, fromToTimeMin = 00;
+    int andfromTime;
+    int remainingTime = 4, remainingTimeMin;
+
+
+    @Override
+    protected void onCreate(@Nullable Bundle savedInstanceState) {
+        su
